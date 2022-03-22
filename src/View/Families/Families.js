@@ -14,5 +14,13 @@ export default function Families() {
     };
     fetch();
   }, []);
-  return <div>Families</div>;
+  return (
+    <div>
+      {families.map((item) => (
+        <div key={item.id}>
+          <h3>{item.name}</h3>
+        </div>
+      ))}
+    </div>
+  );
 }

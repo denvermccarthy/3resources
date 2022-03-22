@@ -14,5 +14,16 @@ export default function Movies() {
     };
     fetch();
   }, []);
-  return <div>Movies</div>;
+  return (
+    <div>
+      {movies.map((item) => (
+        <div key={item.id}>
+          <h3>
+            {item.title}, Rating: {item.rating}
+          </h3>
+          <p>{item.summary}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
