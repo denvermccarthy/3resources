@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { fetchMovies } from '../../services/movies';
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    const fetch = () => {
+    const fetch = async () => {
       try {
-        console.log('movies');
+        const data = await fetchMovies();
+        setMovies(data);
       } catch (error) {
         alert(error.message);
       }
